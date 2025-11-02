@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "public/**/*", "use": "@vercel/static" },
+    { "src": "api/**/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/config", "dest": "/api/config.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ],
+  "env": {
+    "WEBHOOK_URL": "@webhook_url",
+    "BYTESCALE_API_KEY": "@bytescale_api_key", 
+    "BYTESCALE_UPLOAD_URL": "@bytescale_upload_url"
+  }
+}
